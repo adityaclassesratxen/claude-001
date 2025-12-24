@@ -3,8 +3,8 @@ const cors = require("cors");
 require("dotenv").config();
 
 const authRoutes = require("./routes/authRoutes");
-const userRoutes = require("./routes/userRoutes"); // NEW
-const profileRoutes = require("./routes/profileRoutes");
+const profileRoutes = require('./routes/profileRoutes');
+const ticketRoutes = require('./routes/ticketRoutes'); // NEW
 
 const app = express();
 
@@ -14,8 +14,8 @@ app.use(express.json());
 
 // Routes
 app.use("/api/auth", authRoutes);
-app.use("/api/users", userRoutes); // NEW
-app.use("/api", profileRoutes);
+app.use('/api/profile', profileRoutes);
+app.use('/api/tickets', ticketRoutes); // NEW
 
 // Health check
 app.get("/health", (req, res) => {
